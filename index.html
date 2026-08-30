@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d12">
+  <meta name="description" content="A private little surprise made for Abeer, from Shamil.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta property="og:title" content="For Abeer — a private transmission">
+  <meta property="og:description" content="Something crossed the distance just for you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lotbones1-code.github.io/for-abeer/">
+  <meta property="og:image" content="https://lotbones1-code.github.io/for-abeer/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lotbones1-code.github.io/for-abeer/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23100d12'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='32' fill='%23f3a9a5' font-family='Georgia'%3ES%3C/text%3E%3C/svg%3E">
+  <title>For Abeer — From Shamil</title>
+  <style>
+    :root {
+      --ink: #fffaf4;
+      --muted: rgba(255, 250, 244, .62);
+      --faint: rgba(255, 250, 244, .13);
+      --panel: #171219;
+      --panel-warm: #20151a;
+      --night: #0b090d;
+      --rose: #f3a9a5;
+      --rose-strong: #ef847f;
+      --cream: #f5e6d4;
+      --green: #9ed7bd;
+      --danger: #ff9b96;
+      --radius: 18px;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--night); }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 13% 18%, rgba(155, 74, 87, .14), transparent 30rem),
+        radial-gradient(circle at 87% 78%, rgba(110, 77, 125, .11), transparent 28rem),
+        var(--night);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      letter-spacing: -.018em;
+      overflow-x: hidden;
+    }
+
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .stars, .stars::before, .stars::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-repeat: repeat;
+      opacity: .45;
+    }
+    .stars {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.78) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(243,169,165,.7) 0 1px, transparent 1.5px);
+      background-position: 18px 24px, 110px 145px;
+      background-size: 180px 210px, 240px 260px;
+      mask-image: linear-gradient(to bottom, #000, transparent 78%);
+    }
+    .stars::before {
+      background-image: radial-gradient(circle, rgba(255,255,255,.45) 0 .7px, transparent 1.2px);
+      background-position: 50px 80px;
+      background-size: 120px 170px;
+      transform: rotate(7deg) scale(1.05);
+    }
+
+    .app {
+      position: relative;
+      min-height: 100svh;
+      isolation: isolate;
+    }
+
+    .topbar {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: max(12px, env(safe-area-inset-top)) 20px 0;
+      color: rgba(255,250,244,.72);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: linear-gradient(to bottom, rgba(11,9,13,.84), transparent);
+    }
+
+    .wordmark { display: flex; align-items: center; gap: 9px; }
+    .seal {
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      border: 1px solid rgba(243,169,165,.56);
+      border-radius: 50%;
+      color: var(--rose);
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+    .step-count { font-variant-numeric: tabular-nums; }
+
+    .progress-track {
+      position: fixed;
+      z-index: 22;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,.07);
+    }
+    .progress-bar {
+      width: 8%;
+      height: 100%;
+      background: var(--rose);
+      box-shadow: 0 0 18px rgba(243,169,165,.65);
+      transition: width .8s var(--ease);
+    }
+
+    .scene {
+      display: none;
+      min-height: 100svh;
+      width: min(100%, 1040px);
+      margin: 0 auto;
+      padding: 92px 24px 56px;
+      align-items: center;
+    }
+    .scene.is-active {
+      display: flex;
+      animation: scene-in .72s var(--ease) both;
+    }
+    @keyframes scene-in {
+      from { opacity: 0; transform: translateY(18px) scale(.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .scene-inner { width: 100%; }
+    .center { max-width: 720px; margin: 0 auto; text-align: center; }
+    .narrow { max-width: 620px; margin: 0 auto; }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--rose);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 {
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      text-wrap: balance;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(50px, 8.5vw, 92px);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      letter-spacing: -.046em;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .lede {
+      max-width: 560px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.62;
+      text-wrap: pretty;
+    }
+
+    .route {
+      position: relative;
+      width: min(560px, 88vw);
+      height: 132px;
+      margin: 22px auto 20px;
+    }
+    .route svg { width: 100%; height: 100%; overflow: visible; }
+    .route-path {
+      fill: none;
+      stroke: rgba(243,169,165,.48);
+      stroke-width: 1.4;
+      stroke-dasharray: 5 7;
+      animation: route-drift 18s linear infinite;
+    }
+    @keyframes route-drift { to { stroke-dashoffset: -144; } }
+    .route-dot { fill: var(--rose); filter: drop-shadow(0 0 6px rgba(243,169,165,.9)); }
+    .route-ring { fill: none; stroke: rgba(243,169,165,.55); animation: ring 2.4s ease-out infinite; transform-origin: center; }
+    @keyframes ring { from { r: 3px; opacity: .8; } to { r: 13px; opacity: 0; } }
+    .route-labels {
+      position: absolute;
+      inset: auto 0 0;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,250,244,.48);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .primary, .answer, .text-button {
+      border: 0;
+      cursor: pointer;
+    }
+    .primary {
+      min-height: 52px;
+      padding: 0 25px;
+      border-radius: 999px;
+      color: #1c1214;
+      background: var(--cream);
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: -.01em;
+      box-shadow: 0 12px 35px rgba(0,0,0,.24);
+      transition: transform .25s var(--ease), background .25s ease, box-shadow .25s ease;
+    }
+    .primary:hover { transform: translateY(-2px); background: #fff4e7; box-shadow: 0 16px 40px rgba(0,0,0,.31); }
+    .primary:active { transform: translateY(0) scale(.98); }
+    .primary:focus-visible, .answer:focus-visible, .text-button:focus-visible {
+      outline: 3px solid rgba(243,169,165,.48);
+      outline-offset: 4px;
+    }
+    .primary.rose { background: var(--rose); color: #211315; }
+    .primary.dark { background: #22181d; color: var(--ink); box-shadow: none; }
+
+    .privacy-note {
+      margin: 14px 0 0;
+      color: rgba(255,250,244,.38);
+      font-size: 11px;
+      letter-spacing: .03em;
+    }
+
+    .question-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(320px, 1.15fr);
+      gap: clamp(42px, 7vw, 92px);
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .question-number {
+      display: block;
+      margin-bottom: 22px;
+      color: rgba(255,250,244,.22);
+      font-family: Georgia, serif;
+      font-size: 68px;
+      line-height: 1;
+    }
+    .question-copy h2 { font-size: clamp(38px, 5vw, 62px); }
+    .question-copy p { color: var(--muted); line-height: 1.6; }
+    .answers { display: grid; gap: 11px; }
+    .answer {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 15px;
+      align-items: center;
+      width: 100%;
+      min-height: 74px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,250,244,.11);
+      border-radius: 14px;
+      color: var(--ink);
+      background: rgba(255,250,244,.035);
+      text-align: left;
+      transition: border-color .25s ease, background .25s ease, transform .25s var(--ease);
+    }
+    .answer:hover {
+      transform: translateX(4px);
+      border-color: rgba(243,169,165,.44);
+      background: rgba(243,169,165,.075);
+    }
+    .answer-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,250,244,.14);
+      border-radius: 50%;
+      color: var(--rose);
+      font-family: Georgia, serif;
+      font-size: 14px;
+    }
+    .answer-title { display: block; font-size: 15px; font-weight: 650; }
+    .answer-sub { display: block; margin-top: 4px; color: rgba(255,250,244,.45); font-size: 12px; }
+
+    .classified-card {
+      position: relative;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: clamp(34px, 6vw, 64px);
+      border: 1px solid rgba(243,169,165,.2);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,250,244,.055), rgba(255,250,244,.018));
+      box-shadow: 0 34px 90px rgba(0,0,0,.33);
+      text-align: center;
+      overflow: hidden;
+    }
+    .classified-card::before {
+      position: absolute;
+      top: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    }
+    .lock-mark {
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 26px;
+      border: 1px solid rgba(243,169,165,.4);
+      border-radius: 50%;
+    }
+    .lock-body { position: relative; width: 18px; height: 15px; border: 1.5px solid var(--rose); border-radius: 3px; }
+    .lock-body::before { position: absolute; left: 3px; top: -9px; width: 9px; height: 10px; border: 1.5px solid var(--rose); border-bottom: 0; border-radius: 8px 8px 0 0; content: ""; }
+
+    .checkout-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: clamp(36px, 7vw, 84px);
+      align-items: center;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+    .checkout-intro h2 { max-width: 460px; }
+    .checkout-intro .lede { margin-left: 0; }
+    .receipt {
+      padding: 30px;
+      border-radius: 16px;
+      color: #251c1c;
+      background: #f5eadc;
+      box-shadow: 0 30px 90px rgba(0,0,0,.38);
+      transform: rotate(1deg);
+    }
+    .receipt-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(37,28,28,.14);
+    }
+    .receipt-brand { font-family: Georgia, serif; font-size: 19px; }
+    .receipt-code { color: rgba(37,28,28,.48); font: 10px ui-monospace, monospace; letter-spacing: .1em; }
+    .line-item, .receipt-total {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .line-item { padding: 18px 0; border-bottom: 1px dashed rgba(37,28,28,.18); }
+    .line-item strong { display: block; font-size: 14px; }
+    .line-item small { display: block; margin-top: 5px; color: rgba(37,28,28,.54); line-height: 1.4; }
+    .line-item span { white-space: nowrap; font-size: 13px; }
+    .receipt-total { padding: 24px 0 20px; align-items: baseline; }
+    .receipt-total span:first-child { color: rgba(37,28,28,.58); font-size: 12px; text-transform: uppercase; letter-spacing: .09em; }
+    .receipt-total strong { font-family: Georgia, serif; font-size: 36px; font-weight: 400; letter-spacing: -.04em; }
+    .receipt .primary { width: 100%; color: white; background: #25181b; }
+    .receipt-note { margin: 13px 0 0; color: rgba(37,28,28,.48); font-size: 10px; line-height: 1.5; text-align: center; }
+
+    .processing { display: none; text-align: center; }
+    .processing.is-visible { display: block; }
+    .spinner {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto 12px;
+      border: 2px solid rgba(37,28,28,.15);
+      border-top-color: #25181b;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .declined-mark {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(255,155,150,.42);
+      border-radius: 50%;
+      color: var(--danger);
+      font-size: 34px;
+      font-weight: 250;
+    }
+    .declined-total {
+      margin: 4px 0 28px;
+      font-family: Georgia, serif;
+      font-size: clamp(64px, 12vw, 116px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.07em;
+      color: var(--green);
+    }
+    .struck { color: rgba(255,250,244,.3); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+    .letter-wrap {
+      display: grid;
+      grid-template-columns: minmax(180px, .58fr) minmax(0, 1.42fr);
+      gap: clamp(30px, 8vw, 100px);
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .letter-aside { position: sticky; top: 100px; }
+    .monogram {
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 132px;
+      border: 1px solid rgba(243,169,165,.28);
+      border-radius: 50%;
+      color: var(--rose);
+      font-family: Georgia, serif;
+      font-size: 45px;
+      font-style: italic;
+      box-shadow: inset 0 0 0 8px rgba(243,169,165,.025);
+    }
+    .arabic {
+      margin-top: 22px;
+      color: rgba(255,250,244,.5);
+      font-family: "Geeza Pro", "Noto Naskh Arabic", serif;
+      font-size: 17px;
+      line-height: 1.8;
+      direction: rtl;
+      text-align: left;
+    }
+    .letter { max-width: 620px; }
+    .letter h2 { margin-bottom: 30px; }
+    .letter-body {
+      color: rgba(255,250,244,.78);
+      font-family: ui-serif, Georgia, serif;
+      font-size: clamp(18px, 2.4vw, 22px);
+      line-height: 1.72;
+      letter-spacing: -.012em;
+    }
+    .letter-body p { margin-bottom: 22px; }
+    .signature {
+      margin-top: 34px;
+      color: var(--rose);
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-style: italic;
+    }
+    .kiss-ticket {
+      margin-top: 46px;
+      padding: 22px 24px;
+      border: 1px dashed rgba(243,169,165,.36);
+      border-radius: 14px;
+      background: rgba(243,169,165,.045);
+    }
+    .ticket-label { color: var(--rose); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .ticket-title { margin: 9px 0 5px; font-family: Georgia, serif; font-size: 25px; }
+    .ticket-copy { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    .confetti-piece {
+      position: fixed;
+      z-index: 40;
+      top: -20px;
+      width: 6px;
+      height: 12px;
+      border-radius: 2px;
+      pointer-events: none;
+      animation: fall var(--duration) var(--delay) var(--ease) forwards;
+    }
+    @keyframes fall {
+      to { transform: translate3d(var(--drift), 110vh, 0) rotate(var(--spin)); opacity: 0; }
+    }
+
+    .text-button {
+      padding: 10px 0;
+      color: rgba(255,250,244,.48);
+      background: transparent;
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: 720px) {
+      .scene { padding: 82px 20px 38px; }
+      .topbar { padding-left: 16px; padding-right: 16px; }
+      .question-layout, .checkout-shell, .letter-wrap { grid-template-columns: 1fr; }
+      .question-layout { gap: 30px; }
+      .question-number { margin-bottom: 12px; font-size: 48px; }
+      .question-copy h2 { margin-bottom: 12px; }
+      .question-copy p { margin-bottom: 0; }
+      .answer { min-height: 68px; }
+      .checkout-shell { gap: 28px; }
+      .checkout-intro { text-align: center; }
+      .checkout-intro .lede { margin-left: auto; }
+      .receipt { padding: 24px; transform: none; }
+      .letter-wrap { gap: 20px; }
+      .letter-aside { position: static; display: flex; align-items: center; gap: 18px; }
+      .monogram { flex: 0 0 auto; width: 76px; height: 76px; font-size: 28px; }
+      .arabic { margin: 0; text-align: right; font-size: 15px; }
+      .letter h2 { font-size: 42px; }
+    }
+
+    @media (max-width: 380px) {
+      .scene { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 48px; }
+      .answer { padding: 12px; gap: 11px; }
+      .receipt { padding: 20px; }
+      .receipt-total strong { font-size: 32px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001s !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main class="app">
+    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress"></div></div>
+    <header class="topbar">
+      <div class="wordmark"><span class="seal">S</span><span>For Abeer</span></div>
+      <span class="step-count" id="stepCount">01 / 08</span>
+    </header>
+
+    <section class="scene is-active" data-scene="intro" data-progress="8">
+      <div class="scene-inner center">
+        <p class="eyebrow">Encrypted with unreasonable amounts of affection</p>
+        <h1>Private<br>transmission.</h1>
+        <p class="lede">A little something crossed the distance from Shamil’s side of the world to yours. Recipient verification required.</p>
+        <div class="route" aria-hidden="true">
+          <svg viewBox="0 0 560 120" role="img">
+            <path class="route-path" d="M28 88 C 160 -5, 390 -5, 532 88"></path>
+            <circle class="route-dot" cx="28" cy="88" r="3"></circle>
+            <circle class="route-ring" cx="28" cy="88" r="3"></circle>
+            <circle class="route-dot" cx="532" cy="88" r="3"></circle>
+            <circle class="route-ring" cx="532" cy="88" r="3"></circle>
+          </svg>
+          <div class="route-labels"><span>Shamil</span><span>Abeer</span></div>
+        </div>
+        <button class="primary" type="button" data-next="q1">Open it</button>
+        <p class="privacy-note">No sign-in. No tracking. Only for you.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="q1" data-progress="21">
+      <div class="scene-inner question-layout">
+        <div class="question-copy">
+          <span class="question-number">01</span>
+          <p class="eyebrow">Recipient check</p>
+          <h2>Who misses whom more?</h2>
+          <p>Choose carefully. The system is suspiciously biased.</p>
+        </div>
+        <div class="answers" role="group" aria-label="Who misses whom more?">
+          <button class="answer" type="button" data-answer="Abeer misses Shamil more" data-next="q2"><span class="answer-mark">A</span><span><span class="answer-title">Abeer misses Shamil more</span><span class="answer-sub">A respectable theory</span></span></button>
+          <button class="answer" type="button" data-answer="Definitely Shamil" data-next="q2"><span class="answer-mark">B</span><span><span class="answer-title">Definitely Shamil</span><span class="answer-sub">The system’s official answer</span></span></button>
+          <button class="answer" type="button" data-answer="It is a tie" data-next="q2"><span class="answer-mark">C</span><span><span class="answer-title">It’s a tie</span><span class="answer-sub">Diplomatic. Possibly correct.</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="q2" data-progress="34">
+      <div class="scene-inner question-layout">
+        <div class="question-copy">
+          <span class="question-number">02</span>
+          <p class="eyebrow">Tonight’s impossible date</p>
+          <h2>Pick our teleport destination.</h2>
+          <p>Distance has been temporarily removed from the equation.</p>
+        </div>
+        <div class="answers" role="group" aria-label="Pick our teleport destination">
+          <button class="answer" type="button" data-answer="Rooftop" data-next="q3"><span class="answer-mark">A</span><span><span class="answer-title">A rooftop under the stars</span><span class="answer-sub">Late conversations. No curfew.</span></span></button>
+          <button class="answer" type="button" data-answer="Seaside" data-next="q3"><span class="answer-mark">B</span><span><span class="answer-title">A quiet place by the sea</span><span class="answer-sub">Bare feet and a very long walk</span></span></button>
+          <button class="answer" type="button" data-answer="Kitchen" data-next="q3"><span class="answer-mark">C</span><span><span class="answer-title">Our future kitchen at 2 a.m.</span><span class="answer-sub">Snacks. Music. Absolutely no recipe.</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="q3" data-progress="47">
+      <div class="scene-inner question-layout">
+        <div class="question-copy">
+          <span class="question-number">03</span>
+          <p class="eyebrow">Final security question</p>
+          <h2>How many hugs are currently owed?</h2>
+          <p>This answer may be legally binding when we finally meet.</p>
+        </div>
+        <div class="answers" role="group" aria-label="How many hugs are owed?">
+          <button class="answer" type="button" data-answer="One very long hug" data-next="classified"><span class="answer-mark">A</span><span><span class="answer-title">One that lasts forever</span><span class="answer-sub">Efficient, but ambitious</span></span></button>
+          <button class="answer" type="button" data-answer="All 500" data-next="classified"><span class="answer-mark">B</span><span><span class="answer-title">All 500, obviously</span><span class="answer-sub">Correct. No further questions.</span></span></button>
+          <button class="answer" type="button" data-answer="Unlimited" data-next="classified"><span class="answer-mark">C</span><span><span class="answer-title">Unlimited</span><span class="answer-sub">This answer has excellent terms</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="classified" data-progress="60">
+      <div class="scene-inner">
+        <div class="classified-card">
+          <div class="lock-mark" aria-hidden="true"><span class="lock-body"></span></div>
+          <p class="eyebrow">Identity confirmed: Abeer</p>
+          <h2>Your classified surprise is ready.</h2>
+          <p class="lede">One final administrative formality stands between you and the extremely important thing Shamil made.</p>
+          <button class="primary rose" type="button" data-next="checkout">Continue to checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="checkout" data-progress="73">
+      <div class="scene-inner checkout-shell">
+        <div class="checkout-intro">
+          <p class="eyebrow">Official international girlfriend department</p>
+          <h2>A tiny access fee.</h2>
+          <p class="lede">Unfortunately, premium long-distance surprises are subject to highly serious international regulations.</p>
+        </div>
+        <div class="receipt" aria-label="Fake checkout receipt">
+          <div id="receiptContent">
+            <div class="receipt-head"><span class="receipt-brand">Abeer Access™</span><span class="receipt-code">INV–0500</span></div>
+            <div class="line-item"><div><strong>Classified surprise unlock</strong><small>Single-use access for one very special girlfriend</small></div><span>$500.00</span></div>
+            <div class="line-item"><div><strong>International affection tax</strong><small>Paid in kisses upon meeting</small></div><span>Included</span></div>
+            <div class="line-item"><div><strong>Express delivery</strong><small>Across any distance</small></div><span>Free</span></div>
+            <div class="receipt-total"><span>Total due</span><strong>$500.00</strong></div>
+            <button class="primary" id="payButton" type="button">Pay $500</button>
+            <p class="receipt-note">This is a joke—no card details, no real payment, and no money will ever be collected.</p>
+          </div>
+          <div class="processing" id="processing" aria-live="polite">
+            <div class="spinner" aria-hidden="true"></div>
+            <strong>Consulting the girlfriend pricing authority…</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="declined" data-progress="87">
+      <div class="scene-inner center">
+        <div class="declined-mark" aria-hidden="true">×</div>
+        <p class="eyebrow">Payment declined — excellent news</p>
+        <h2>Abeer is far too cute to be charged.</h2>
+        <p class="lede"><span class="struck">Original total: $500.00</span><br>Your corrected total is:</p>
+        <div class="declined-total">$0.00</div>
+        <button class="primary rose" type="button" data-next="final" id="revealButton">Open the real surprise</button>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="final" data-progress="100">
+      <div class="scene-inner letter-wrap">
+        <aside class="letter-aside">
+          <div class="monogram" aria-label="A and S">A · S</div>
+          <p class="arabic" lang="ar">إلى عبير، بكل حب<br>— شامل</p>
+        </aside>
+        <article class="letter">
+          <p class="eyebrow">The real surprise</p>
+          <h2>Abeer, this is the real part.</h2>
+          <div class="letter-body">
+            <p>None of this was ever about $500. I made this because even from far away, I wanted you to open something that felt like it existed only for you.</p>
+            <p>I wanted to make you smile, give you a little moment you wouldn’t expect, and remind you that the distance doesn’t stop me from finding new ways to be close to you.</p>
+            <p>So no—you don’t owe me any money.</p>
+            <p><strong>You owe me 500 kisses.</strong> I’ll be patient, but I’m keeping count.</p>
+          </div>
+          <p class="signature">Always yours,<br>Shamil</p>
+          <div class="kiss-ticket">
+            <div class="ticket-label">Lifetime redemption certificate · No expiry</div>
+            <div class="ticket-title">500 kisses reserved for Abeer</div>
+            <p class="ticket-copy">Valid whenever the distance finally becomes zero. Non-transferable. Additional hugs strongly encouraged.</p>
+          </div>
+          <button class="text-button" id="replayButton" type="button">Replay from the beginning</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const scenes = [...document.querySelectorAll('.scene')];
+      const progress = document.getElementById('progress');
+      const stepCount = document.getElementById('stepCount');
+      const answers = [];
+      let paymentTimer;
+
+      function showScene(name) {
+        const next = document.querySelector(`[data-scene="${name}"]`);
+        if (!next) return;
+        scenes.forEach(scene => {
+          scene.classList.toggle('is-active', scene === next);
+          scene.setAttribute('aria-hidden', String(scene !== next));
+        });
+        const index = scenes.indexOf(next) + 1;
+        stepCount.textContent = `${String(index).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')}`;
+        progress.style.width = `${next.dataset.progress}%`;
+        document.title = name === 'final' ? 'For Abeer — Always Yours, Shamil' : 'For Abeer — From Shamil';
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        const focusTarget = next.querySelector('h1, h2');
+        if (focusTarget) {
+          focusTarget.setAttribute('tabindex', '-1');
+          requestAnimationFrame(() => focusTarget.focus({ preventScroll: true }));
+        }
+      }
+
+      document.addEventListener('click', event => {
+        const button = event.target.closest('[data-next]');
+        if (!button) return;
+        if (button.dataset.answer) answers.push(button.dataset.answer);
+        showScene(button.dataset.next);
+      });
+
+      document.getElementById('payButton').addEventListener('click', () => {
+        document.getElementById('receiptContent').hidden = true;
+        document.getElementById('processing').classList.add('is-visible');
+        clearTimeout(paymentTimer);
+        paymentTimer = setTimeout(() => showScene('declined'), 1100);
+      });
+
+      function celebrate() {
+        const colors = ['#f3a9a5', '#f5e6d4', '#9ed7bd', '#d3a6c8'];
+        for (let i = 0; i < 46; i += 1) {
+          const piece = document.createElement('i');
+          piece.className = 'confetti-piece';
+          piece.style.left = `${Math.random() * 100}vw`;
+          piece.style.background = colors[i % colors.length];
+          piece.style.setProperty('--duration', `${2.4 + Math.random() * 2.2}s`);
+          piece.style.setProperty('--delay', `${Math.random() * .4}s`);
+          piece.style.setProperty('--drift', `${-80 + Math.random() * 160}px`);
+          piece.style.setProperty('--spin', `${180 + Math.random() * 720}deg`);
+          document.body.appendChild(piece);
+          setTimeout(() => piece.remove(), 5100);
+        }
+      }
+
+      document.getElementById('revealButton').addEventListener('click', celebrate);
+      document.getElementById('replayButton').addEventListener('click', () => {
+        clearTimeout(paymentTimer);
+        answers.length = 0;
+        document.getElementById('receiptContent').hidden = false;
+        document.getElementById('processing').classList.remove('is-visible');
+        showScene('intro');
+      });
+
+      scenes.forEach((scene, index) => scene.setAttribute('aria-hidden', String(index !== 0)));
+    })();
+  </script>
+</body>
+</html>

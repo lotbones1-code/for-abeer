@@ -1,0 +1,12 @@
+{
+  "name": "abeer-private-transmission",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:mobile": "playwright test --project=mobile"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0"
+  }
+}
