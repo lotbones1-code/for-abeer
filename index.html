@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#100d12">
-  <meta name="description" content="A private little surprise made for Abeer, from Shamil.">
+  <meta name="theme-color" content="#ff5f7e">
+  <meta name="description" content="A playful long-distance love delivery made for Abeer, from Shamil.">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta property="og:title" content="For Abeer — a private transmission">
-  <meta property="og:description" content="Something crossed the distance just for you.">
+  <meta property="og:title" content="Special delivery for Abeer">
+  <meta property="og:description" content="A tiny universe crossed the distance just for you.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lotbones1-code.github.io/for-abeer/">
   <meta property="og:image" content="https://lotbones1-code.github.io/for-abeer/og-preview.png">
@@ -15,519 +15,417 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lotbones1-code.github.io/for-abeer/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23100d12'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='32' fill='%23f3a9a5' font-family='Georgia'%3ES%3C/text%3E%3C/svg%3E">
-  <title>For Abeer — From Shamil</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff5f7e'/%3E%3Cpath d='M32 48S13 38 13 23c0-10 13-13 19-4 6-9 19-6 19 4 0 15-19 25-19 25Z' fill='%23fff8e8'/%3E%3C/svg%3E">
+  <title>For Abeer — Special Delivery</title>
   <style>
     :root {
-      --ink: #fffaf4;
-      --muted: rgba(255, 250, 244, .62);
-      --faint: rgba(255, 250, 244, .13);
-      --panel: #171219;
-      --panel-warm: #20151a;
-      --night: #0b090d;
-      --rose: #f3a9a5;
-      --rose-strong: #ef847f;
-      --cream: #f5e6d4;
-      --green: #9ed7bd;
-      --danger: #ff9b96;
-      --radius: 18px;
+      --paper: #fff8e8;
+      --paper-deep: #f2e6ce;
+      --ink: #24212b;
+      --muted: #746b70;
+      --pink: #ff5f7e;
+      --pink-dark: #d83f63;
+      --yellow: #ffd84d;
+      --blue: #76d8ff;
+      --green: #72d6a0;
+      --purple: #a78bfa;
+      --red: #f24f55;
+      --line: #24212b;
+      --shadow: 7px 8px 0 #24212b;
+      --soft-shadow: 0 20px 60px rgba(56, 38, 42, .16);
+      --radius: 26px;
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
     * { box-sizing: border-box; }
-    html { min-height: 100%; background: var(--night); }
+    html { min-height: 100%; background: var(--paper); }
     body {
       margin: 0;
       min-height: 100svh;
+      overflow-x: hidden;
       color: var(--ink);
       background:
-        radial-gradient(circle at 13% 18%, rgba(155, 74, 87, .14), transparent 30rem),
-        radial-gradient(circle at 87% 78%, rgba(110, 77, 125, .11), transparent 28rem),
-        var(--night);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+        radial-gradient(circle at 1px 1px, rgba(36,33,43,.09) 1px, transparent 1.2px) 0 0 / 24px 24px,
+        linear-gradient(115deg, rgba(255,216,77,.17), transparent 30%),
+        var(--paper);
+      font-family: "Avenir Next", Avenir, "Nunito Sans", ui-rounded, system-ui, sans-serif;
       letter-spacing: -.018em;
-      overflow-x: hidden;
     }
 
-    button, input { font: inherit; }
-    button { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible { outline: 4px solid var(--blue); outline-offset: 4px; }
+    h1, h2, h3, p { margin-top: 0; }
+    strong { font-weight: 800; }
 
-    .stars, .stars::before, .stars::after {
+    .app { position: relative; min-height: 100svh; isolation: isolate; }
+    .grain {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      content: "";
-      background-repeat: repeat;
-      opacity: .45;
-    }
-    .stars {
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.78) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(243,169,165,.7) 0 1px, transparent 1.5px);
-      background-position: 18px 24px, 110px 145px;
-      background-size: 180px 210px, 240px 260px;
-      mask-image: linear-gradient(to bottom, #000, transparent 78%);
-    }
-    .stars::before {
-      background-image: radial-gradient(circle, rgba(255,255,255,.45) 0 .7px, transparent 1.2px);
-      background-position: 50px 80px;
-      background-size: 120px 170px;
-      transform: rotate(7deg) scale(1.05);
-    }
-
-    .app {
-      position: relative;
-      min-height: 100svh;
-      isolation: isolate;
+      z-index: 50;
+      opacity: .1;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
     }
 
     .topbar {
       position: fixed;
-      z-index: 20;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
+      z-index: 30;
+      inset: 0 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      padding: max(12px, env(safe-area-inset-top)) 20px 0;
-      color: rgba(255,250,244,.72);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: linear-gradient(to bottom, rgba(11,9,13,.84), transparent);
+      min-height: 66px;
+      padding: max(12px, env(safe-area-inset-top)) 24px 10px;
+      border-bottom: 2px solid rgba(36,33,43,.12);
+      background: rgba(255,248,232,.88);
+      backdrop-filter: blur(12px);
     }
-
+    .wordmark, .love-meter, .step-count {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
     .wordmark { display: flex; align-items: center; gap: 9px; }
     .seal {
       display: grid;
       place-items: center;
-      width: 21px;
-      height: 21px;
-      border: 1px solid rgba(243,169,165,.56);
-      border-radius: 50%;
-      color: var(--rose);
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--ink);
+      border-radius: 9px;
+      color: white;
+      background: var(--pink);
       font-family: Georgia, serif;
-      font-size: 11px;
+      font-size: 15px;
+      font-style: italic;
       letter-spacing: 0;
+      transform: rotate(-5deg);
+      box-shadow: 2px 2px 0 var(--ink);
     }
-    .step-count { font-variant-numeric: tabular-nums; }
+    .love-meter {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: white;
+      box-shadow: 3px 3px 0 rgba(36,33,43,.9);
+    }
+    .meter-heart { color: var(--pink); font-size: 15px; animation: pulse 1.8s ease-in-out infinite; }
+    .step-count { justify-self: end; font-variant-numeric: tabular-nums; }
+    @keyframes pulse { 50% { transform: scale(1.22) rotate(6deg); } }
 
-    .progress-track {
-      position: fixed;
-      z-index: 22;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: rgba(255,255,255,.07);
-    }
-    .progress-bar {
-      width: 8%;
-      height: 100%;
-      background: var(--rose);
-      box-shadow: 0 0 18px rgba(243,169,165,.65);
-      transition: width .8s var(--ease);
-    }
+    .progress-track { position: fixed; z-index: 32; inset: 0 0 auto; height: 5px; background: rgba(36,33,43,.12); }
+    .progress-bar { width: 8%; height: 100%; background: var(--pink); transition: width .7s var(--ease); }
 
     .scene {
       display: none;
       min-height: 100svh;
-      width: min(100%, 1040px);
+      width: min(100%, 1180px);
       margin: 0 auto;
-      padding: 92px 24px 56px;
+      padding: 112px 32px 58px;
       align-items: center;
     }
-    .scene.is-active {
-      display: flex;
-      animation: scene-in .72s var(--ease) both;
-    }
+    .scene.is-active { display: flex; animation: scene-in .65s var(--ease) both; }
     @keyframes scene-in {
-      from { opacity: 0; transform: translateY(18px) scale(.99); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     .scene-inner { width: 100%; }
-    .center { max-width: 720px; margin: 0 auto; text-align: center; }
-    .narrow { max-width: 620px; margin: 0 auto; }
 
     .eyebrow {
-      margin: 0 0 18px;
-      color: var(--rose);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .18em;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      margin: 0 0 19px;
+      padding: 5px 10px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      line-height: 1;
       text-transform: uppercase;
+      box-shadow: 3px 3px 0 var(--ink);
+      transform: rotate(-1deg);
     }
-
-    h1, h2, h3, p { margin-top: 0; }
     h1, h2 {
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-weight: 400;
+      margin-bottom: 20px;
+      font-family: "Arial Rounded MT Bold", "Avenir Next", ui-rounded, system-ui, sans-serif;
+      font-weight: 900;
+      line-height: .94;
+      letter-spacing: -.07em;
       text-wrap: balance;
     }
-    h1 {
-      margin-bottom: 20px;
-      font-size: clamp(50px, 8.5vw, 92px);
-      line-height: .96;
-      letter-spacing: -.055em;
-    }
-    h2 {
-      margin-bottom: 18px;
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1;
-      letter-spacing: -.046em;
-    }
-    h3 {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: .01em;
-    }
-    .lede {
-      max-width: 560px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-      font-size: clamp(16px, 2.2vw, 19px);
-      line-height: 1.62;
-      text-wrap: pretty;
-    }
-
-    .route {
-      position: relative;
-      width: min(560px, 88vw);
-      height: 132px;
-      margin: 22px auto 20px;
-    }
-    .route svg { width: 100%; height: 100%; overflow: visible; }
-    .route-path {
-      fill: none;
-      stroke: rgba(243,169,165,.48);
-      stroke-width: 1.4;
-      stroke-dasharray: 5 7;
-      animation: route-drift 18s linear infinite;
-    }
-    @keyframes route-drift { to { stroke-dashoffset: -144; } }
-    .route-dot { fill: var(--rose); filter: drop-shadow(0 0 6px rgba(243,169,165,.9)); }
-    .route-ring { fill: none; stroke: rgba(243,169,165,.55); animation: ring 2.4s ease-out infinite; transform-origin: center; }
-    @keyframes ring { from { r: 3px; opacity: .8; } to { r: 13px; opacity: 0; } }
-    .route-labels {
+    h1 { font-size: clamp(57px, 8.2vw, 106px); }
+    h2 { font-size: clamp(43px, 6vw, 76px); }
+    .accent { position: relative; display: inline-block; color: var(--pink-dark); }
+    .accent::after {
       position: absolute;
-      inset: auto 0 0;
-      display: flex;
-      justify-content: space-between;
-      color: rgba(255,250,244,.48);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .primary, .answer, .text-button {
-      border: 0;
-      cursor: pointer;
-    }
-    .primary {
-      min-height: 52px;
-      padding: 0 25px;
+      z-index: -1;
+      content: "";
+      left: -3%;
+      right: -3%;
+      bottom: .06em;
+      height: .18em;
       border-radius: 999px;
-      color: #1c1214;
-      background: var(--cream);
-      font-size: 15px;
-      font-weight: 650;
-      letter-spacing: -.01em;
-      box-shadow: 0 12px 35px rgba(0,0,0,.24);
-      transition: transform .25s var(--ease), background .25s ease, box-shadow .25s ease;
+      background: var(--yellow);
+      transform: rotate(-2deg);
     }
-    .primary:hover { transform: translateY(-2px); background: #fff4e7; box-shadow: 0 16px 40px rgba(0,0,0,.31); }
-    .primary:active { transform: translateY(0) scale(.98); }
-    .primary:focus-visible, .answer:focus-visible, .text-button:focus-visible {
-      outline: 3px solid rgba(243,169,165,.48);
-      outline-offset: 4px;
-    }
-    .primary.rose { background: var(--rose); color: #211315; }
-    .primary.dark { background: #22181d; color: var(--ink); box-shadow: none; }
+    .lede { color: var(--muted); font-size: clamp(17px, 2.1vw, 21px); line-height: 1.55; text-wrap: pretty; }
 
-    .privacy-note {
-      margin: 14px 0 0;
-      color: rgba(255,250,244,.38);
-      font-size: 11px;
-      letter-spacing: .03em;
-    }
-
-    .question-layout {
+    .intro-layout {
       display: grid;
-      grid-template-columns: minmax(0, .85fr) minmax(320px, 1.15fr);
-      gap: clamp(42px, 7vw, 92px);
+      grid-template-columns: minmax(0, 1fr) minmax(400px, .9fr);
+      gap: clamp(50px, 8vw, 110px);
       align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
     }
-    .question-number {
-      display: block;
-      margin-bottom: 22px;
-      color: rgba(255,250,244,.22);
-      font-family: Georgia, serif;
-      font-size: 68px;
-      line-height: 1;
+    .intro-copy { position: relative; z-index: 2; max-width: 650px; }
+    .intro-copy .lede { max-width: 570px; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 30px; }
+    .privacy-note { margin: 0; color: var(--muted); font-size: 12px; font-weight: 650; }
+
+    .primary, .answer, .text-button { border: 0; cursor: pointer; }
+    .primary {
+      position: relative;
+      min-height: 56px;
+      padding: 0 24px;
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      color: white;
+      background: var(--pink);
+      font-size: 15px;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      transition: transform .24s var(--ease), box-shadow .24s var(--ease), background .24s ease;
     }
-    .question-copy h2 { font-size: clamp(38px, 5vw, 62px); }
-    .question-copy p { color: var(--muted); line-height: 1.6; }
-    .answers { display: grid; gap: 11px; }
+    .primary:hover { transform: translate(3px, 3px) rotate(-1deg); box-shadow: 4px 5px 0 var(--ink); background: var(--pink-dark); }
+    .primary:active { transform: translate(7px, 8px); box-shadow: 0 0 0 var(--ink); }
+    .primary.yellow { color: var(--ink); background: var(--yellow); }
+    .primary.yellow:hover { background: #ffc928; }
+    .primary.dark { color: white; background: var(--ink); }
+
+    .parcel-stage {
+      position: relative;
+      min-height: 490px;
+      display: grid;
+      place-items: center;
+    }
+    .orbit {
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 2px dashed rgba(36,33,43,.34);
+      border-radius: 50%;
+      animation: orbit 24s linear infinite;
+    }
+    .orbit::before, .orbit::after {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      font-size: 22px;
+      box-shadow: 4px 4px 0 var(--ink);
+      content: "✦";
+    }
+    .orbit::before { top: 38px; left: 22px; background: var(--blue); }
+    .orbit::after { right: 5px; bottom: 78px; color: white; background: var(--purple); content: "♥"; }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    .parcel {
+      position: relative;
+      width: min(360px, 88vw);
+      min-height: 285px;
+      padding: 28px;
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      background: #fffdf7;
+      box-shadow: 14px 16px 0 var(--pink);
+      transform: rotate(4deg);
+      animation: float 4.6s ease-in-out infinite;
+    }
+    @keyframes float { 50% { transform: translateY(-12px) rotate(2deg); } }
+    .parcel-tape { position: absolute; top: -18px; left: 50%; width: 92px; height: 40px; background: rgba(255,216,77,.8); transform: translateX(-50%) rotate(-2deg); }
+    .postmark {
+      position: absolute;
+      top: 20px;
+      right: 23px;
+      display: grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      border: 3px double var(--pink-dark);
+      border-radius: 50%;
+      color: var(--pink-dark);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      line-height: 1.3;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(11deg);
+    }
+    .parcel-label { margin: 30px 0 9px; color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .parcel-name { font-family: Georgia, serif; font-size: clamp(55px, 7vw, 78px); font-style: italic; line-height: 1; }
+    .parcel-route { display: flex; align-items: center; gap: 10px; margin-top: 34px; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .route-line { flex: 1; height: 2px; border-top: 2px dashed var(--ink); }
+    .parcel-sticker { position: absolute; right: -30px; bottom: -28px; padding: 12px 14px; border: 3px solid var(--ink); border-radius: 50%; color: white; background: var(--green); font-size: 12px; font-weight: 900; box-shadow: 5px 5px 0 var(--ink); transform: rotate(-12deg); }
+
+    .question-layout { display: grid; grid-template-columns: minmax(0,.72fr) minmax(430px,1.28fr); gap: clamp(42px,7vw,90px); align-items: center; }
+    .question-copy { position: relative; }
+    .question-number { display: block; margin-bottom: 15px; color: var(--pink); font: italic 800 64px Georgia, serif; line-height: 1; transform: rotate(-4deg); }
+    .question-copy p:last-child { max-width: 440px; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .answers { display: grid; gap: 16px; }
     .answer {
       position: relative;
       display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 15px;
+      grid-template-columns: 58px 1fr auto;
+      gap: 16px;
       align-items: center;
       width: 100%;
-      min-height: 74px;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,250,244,.11);
-      border-radius: 14px;
+      min-height: 92px;
+      padding: 16px 20px;
+      border: 3px solid var(--ink);
+      border-radius: 18px;
       color: var(--ink);
-      background: rgba(255,250,244,.035);
+      background: #fffdf7;
       text-align: left;
-      transition: border-color .25s ease, background .25s ease, transform .25s var(--ease);
+      box-shadow: 6px 7px 0 var(--ink);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s ease;
     }
-    .answer:hover {
-      transform: translateX(4px);
-      border-color: rgba(243,169,165,.44);
-      background: rgba(243,169,165,.075);
-    }
-    .answer-mark {
-      display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(255,250,244,.14);
-      border-radius: 50%;
-      color: var(--rose);
-      font-family: Georgia, serif;
-      font-size: 14px;
-    }
-    .answer-title { display: block; font-size: 15px; font-weight: 650; }
-    .answer-sub { display: block; margin-top: 4px; color: rgba(255,250,244,.45); font-size: 12px; }
+    .answer:nth-child(2) { transform: rotate(.5deg); }
+    .answer:nth-child(3) { transform: rotate(-.4deg); }
+    .answer:hover { transform: translate(4px,4px) rotate(-.7deg); box-shadow: 2px 3px 0 var(--ink); background: #fff2c1; }
+    .answer-mark { display: grid; place-items: center; width: 54px; height: 54px; border: 2px solid var(--ink); border-radius: 14px; background: var(--yellow); font: italic 800 22px Georgia, serif; transform: rotate(-4deg); }
+    .answer:nth-child(2) .answer-mark { background: var(--blue); }
+    .answer:nth-child(3) .answer-mark { background: var(--green); }
+    .answer-title { display: block; font-size: 17px; font-weight: 900; }
+    .answer-sub { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: 600; }
+    .answer-arrow { font-size: 28px; font-weight: 500; transition: transform .2s ease; }
+    .answer:hover .answer-arrow { transform: translateX(5px); }
 
-    .classified-card {
-      position: relative;
-      max-width: 650px;
-      margin: 0 auto;
-      padding: clamp(34px, 6vw, 64px);
-      border: 1px solid rgba(243,169,165,.2);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,250,244,.055), rgba(255,250,244,.018));
-      box-shadow: 0 34px 90px rgba(0,0,0,.33);
-      text-align: center;
-      overflow: hidden;
-    }
-    .classified-card::before {
-      position: absolute;
-      top: 0;
-      left: 12%;
-      right: 12%;
-      height: 1px;
-      content: "";
-      background: linear-gradient(90deg, transparent, var(--rose), transparent);
-    }
-    .lock-mark {
-      display: grid;
-      place-items: center;
-      width: 62px;
-      height: 62px;
-      margin: 0 auto 26px;
-      border: 1px solid rgba(243,169,165,.4);
-      border-radius: 50%;
-    }
-    .lock-body { position: relative; width: 18px; height: 15px; border: 1.5px solid var(--rose); border-radius: 3px; }
-    .lock-body::before { position: absolute; left: 3px; top: -9px; width: 9px; height: 10px; border: 1.5px solid var(--rose); border-bottom: 0; border-radius: 8px 8px 0 0; content: ""; }
+    .classified-shell { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(34px,7vw,90px); align-items: center; max-width: 1000px; margin: 0 auto; }
+    .approved-stamp { position: relative; display: grid; place-items: center; width: min(330px,80vw); aspect-ratio: 1; margin: auto; border: 4px dashed var(--ink); border-radius: 50%; background: var(--yellow); box-shadow: 12px 14px 0 var(--pink); transform: rotate(-7deg); }
+    .approved-stamp::before { position: absolute; inset: 18px; border: 3px solid var(--ink); border-radius: 50%; content: ""; }
+    .approved-stamp span { max-width: 230px; font-size: clamp(40px,5vw,61px); font-weight: 900; line-height: .86; letter-spacing: -.07em; text-align: center; text-transform: uppercase; }
+    .classified-card { padding: clamp(30px,5vw,50px); border: 3px solid var(--ink); border-radius: 28px; background: #fffdf7; box-shadow: 10px 11px 0 var(--ink); }
+    .classified-card h2 { font-size: clamp(42px,5vw,65px); }
+    .date-plan { margin: 24px 0; padding: 20px; border: 2px dashed var(--ink); border-radius: 16px; background: #eaf9ff; }
+    .date-plan-label { margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .date-plan-copy { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.5; }
 
-    .checkout-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-      gap: clamp(36px, 7vw, 84px);
-      align-items: center;
-      max-width: 940px;
-      margin: 0 auto;
-    }
-    .checkout-intro h2 { max-width: 460px; }
-    .checkout-intro .lede { margin-left: 0; }
-    .receipt {
-      padding: 30px;
-      border-radius: 16px;
-      color: #251c1c;
-      background: #f5eadc;
-      box-shadow: 0 30px 90px rgba(0,0,0,.38);
-      transform: rotate(1deg);
-    }
-    .receipt-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 22px;
-      border-bottom: 1px solid rgba(37,28,28,.14);
-    }
-    .receipt-brand { font-family: Georgia, serif; font-size: 19px; }
-    .receipt-code { color: rgba(37,28,28,.48); font: 10px ui-monospace, monospace; letter-spacing: .1em; }
-    .line-item, .receipt-total {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .line-item { padding: 18px 0; border-bottom: 1px dashed rgba(37,28,28,.18); }
+    .checkout-shell { display: grid; grid-template-columns: minmax(0,.8fr) minmax(380px,1.2fr); gap: clamp(42px,7vw,90px); align-items: center; max-width: 1040px; margin: 0 auto; }
+    .checkout-intro .lede { max-width: 470px; }
+    .receipt { position: relative; padding: 34px; border: 3px solid var(--ink); color: var(--ink); background: #fffdf7; box-shadow: 12px 14px 0 var(--purple); transform: rotate(1.2deg); }
+    .receipt::before, .receipt::after { position: absolute; left: -3px; right: -3px; height: 16px; content: ""; background: radial-gradient(circle at 8px 0, transparent 8px, var(--ink) 8.5px 10px, #fffdf7 10.5px) repeat-x 0 0/20px 16px; }
+    .receipt::before { top: -15px; transform: rotate(180deg); }
+    .receipt::after { bottom: -15px; }
+    .receipt-head { display: flex; justify-content: space-between; gap: 15px; padding-bottom: 22px; border-bottom: 3px solid var(--ink); }
+    .receipt-brand { font-size: 22px; font-weight: 900; }
+    .receipt-code { color: var(--muted); font: 700 10px ui-monospace, monospace; letter-spacing: .1em; }
+    .line-item, .receipt-total { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+    .line-item { padding: 18px 0; border-bottom: 2px dashed rgba(36,33,43,.25); }
     .line-item strong { display: block; font-size: 14px; }
-    .line-item small { display: block; margin-top: 5px; color: rgba(37,28,28,.54); line-height: 1.4; }
-    .line-item span { white-space: nowrap; font-size: 13px; }
-    .receipt-total { padding: 24px 0 20px; align-items: baseline; }
-    .receipt-total span:first-child { color: rgba(37,28,28,.58); font-size: 12px; text-transform: uppercase; letter-spacing: .09em; }
-    .receipt-total strong { font-family: Georgia, serif; font-size: 36px; font-weight: 400; letter-spacing: -.04em; }
-    .receipt .primary { width: 100%; color: white; background: #25181b; }
-    .receipt-note { margin: 13px 0 0; color: rgba(37,28,28,.48); font-size: 10px; line-height: 1.5; text-align: center; }
-
-    .processing { display: none; text-align: center; }
+    .line-item small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.4; }
+    .line-item > span { white-space: nowrap; font-size: 13px; font-weight: 800; }
+    .receipt-total { align-items: baseline; padding: 24px 0 20px; }
+    .receipt-total span { font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .receipt-total strong { font-size: 40px; line-height: 1; }
+    .receipt .primary { width: 100%; }
+    .receipt-note { margin: 15px 0 0; color: var(--muted); font-size: 10px; font-weight: 650; line-height: 1.5; text-align: center; }
+    .processing { display: none; padding: 50px 10px; text-align: center; }
     .processing.is-visible { display: block; }
-    .spinner {
-      width: 30px;
-      height: 30px;
-      margin: 0 auto 12px;
-      border: 2px solid rgba(37,28,28,.15);
-      border-top-color: #25181b;
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-    }
+    .spinner { width: 52px; height: 52px; margin: 0 auto 18px; border: 4px solid rgba(36,33,43,.15); border-top-color: var(--pink); border-radius: 50%; animation: spin .8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .declined-mark {
-      display: grid;
-      place-items: center;
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 24px;
-      border: 1px solid rgba(255,155,150,.42);
-      border-radius: 50%;
-      color: var(--danger);
-      font-size: 34px;
-      font-weight: 250;
-    }
-    .declined-total {
-      margin: 4px 0 28px;
-      font-family: Georgia, serif;
-      font-size: clamp(64px, 12vw, 116px);
-      font-weight: 400;
-      line-height: .9;
-      letter-spacing: -.07em;
-      color: var(--green);
-    }
-    .struck { color: rgba(255,250,244,.3); text-decoration: line-through; text-decoration-thickness: 1px; }
+    .center { max-width: 850px; margin: 0 auto; text-align: center; }
+    .declined-burst { position: relative; display: grid; place-items: center; width: 150px; height: 150px; margin: 0 auto 30px; color: white; background: var(--pink); clip-path: polygon(50% 0%,61% 22%,82% 9%,79% 33%,100% 39%,79% 53%,94% 72%,69% 70%,67% 96%,49% 78%,31% 100%,29% 73%,4% 80%,20% 57%,0 44%,25% 36%,14% 14%,39% 24%); font-size: 58px; font-weight: 900; animation: wobble 2.5s ease-in-out infinite; }
+    @keyframes wobble { 50% { transform: rotate(8deg) scale(1.06); } }
+    .declined-total { margin: 5px 0 28px; color: var(--green); font-size: clamp(75px,12vw,130px); font-weight: 900; line-height: .8; letter-spacing: -.08em; text-shadow: 5px 5px 0 var(--ink); -webkit-text-stroke: 3px var(--ink); }
+    .struck { color: var(--muted); text-decoration: line-through 3px var(--pink); }
 
-    .letter-wrap {
-      display: grid;
-      grid-template-columns: minmax(180px, .58fr) minmax(0, 1.42fr);
-      gap: clamp(30px, 8vw, 100px);
-      max-width: 900px;
-      margin: 0 auto;
-      align-items: start;
-    }
-    .letter-aside { position: sticky; top: 100px; }
-    .monogram {
-      display: grid;
-      place-items: center;
-      width: 132px;
-      height: 132px;
-      border: 1px solid rgba(243,169,165,.28);
-      border-radius: 50%;
-      color: var(--rose);
-      font-family: Georgia, serif;
-      font-size: 45px;
-      font-style: italic;
-      box-shadow: inset 0 0 0 8px rgba(243,169,165,.025);
-    }
-    .arabic {
-      margin-top: 22px;
-      color: rgba(255,250,244,.5);
-      font-family: "Geeza Pro", "Noto Naskh Arabic", serif;
-      font-size: 17px;
-      line-height: 1.8;
-      direction: rtl;
-      text-align: left;
-    }
-    .letter { max-width: 620px; }
-    .letter h2 { margin-bottom: 30px; }
-    .letter-body {
-      color: rgba(255,250,244,.78);
-      font-family: ui-serif, Georgia, serif;
-      font-size: clamp(18px, 2.4vw, 22px);
-      line-height: 1.72;
-      letter-spacing: -.012em;
-    }
-    .letter-body p { margin-bottom: 22px; }
-    .signature {
-      margin-top: 34px;
-      color: var(--rose);
-      font-family: Georgia, serif;
-      font-size: 24px;
-      font-style: italic;
-    }
-    .kiss-ticket {
-      margin-top: 46px;
-      padding: 22px 24px;
-      border: 1px dashed rgba(243,169,165,.36);
-      border-radius: 14px;
-      background: rgba(243,169,165,.045);
-    }
-    .ticket-label { color: var(--rose); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-    .ticket-title { margin: 9px 0 5px; font-family: Georgia, serif; font-size: 25px; }
-    .ticket-copy { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .final-scene { align-items: flex-start; }
+    .final-grid { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(330px,.8fr); gap: clamp(40px,7vw,80px); max-width: 1050px; margin: 0 auto; align-items: start; }
+    .letter-paper { position: relative; padding: clamp(34px,6vw,68px); border: 3px solid var(--ink); background: #fffdf7; box-shadow: 13px 15px 0 var(--pink); transform: rotate(-.6deg); }
+    .letter-paper::before { position: absolute; top: -18px; left: 13%; width: 115px; height: 38px; content: ""; background: rgba(118,216,255,.72); transform: rotate(-3deg); }
+    .letter-paper h2 { font-size: clamp(43px,5vw,68px); }
+    .letter-body { color: #494149; font-family: Georgia, serif; font-size: clamp(18px,2vw,21px); line-height: 1.7; }
+    .letter-body p { margin-bottom: 20px; }
+    .signature { margin: 28px 0 0; color: var(--pink-dark); font: italic 28px Georgia, serif; }
+    .arabic { margin: 24px 0 0; color: var(--muted); font-family: "Geeza Pro", "Noto Naskh Arabic", serif; font-size: 17px; direction: rtl; text-align: right; }
 
-    .confetti-piece {
-      position: fixed;
-      z-index: 40;
-      top: -20px;
-      width: 6px;
-      height: 12px;
-      border-radius: 2px;
-      pointer-events: none;
-      animation: fall var(--duration) var(--delay) var(--ease) forwards;
-    }
-    @keyframes fall {
-      to { transform: translate3d(var(--drift), 110vh, 0) rotate(var(--spin)); opacity: 0; }
+    .kiss-machine { position: sticky; top: 100px; padding: 28px; border: 3px solid var(--ink); border-radius: 28px; background: var(--yellow); box-shadow: 10px 11px 0 var(--ink); text-align: center; transform: rotate(1deg); }
+    .machine-label { margin-bottom: 8px; font-size: 10px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .kiss-counter { font-size: clamp(82px,10vw,122px); font-weight: 900; line-height: .9; letter-spacing: -.08em; font-variant-numeric: tabular-nums; }
+    .kiss-unit { margin: 4px 0 22px; font: italic 22px Georgia, serif; }
+    .kiss-status { min-height: 24px; margin: 18px 0 0; color: var(--pink-dark); font-size: 14px; font-weight: 900; }
+    .ticket { margin-top: 32px; padding: 20px; border: 2px dashed var(--ink); border-radius: 14px; background: #fffdf7; text-align: left; }
+    .ticket-label { font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .ticket-title { margin: 7px 0; font-size: 19px; font-weight: 900; }
+    .ticket p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .text-button { margin-top: 20px; padding: 10px; color: var(--ink); background: transparent; font-size: 12px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+
+    .confetti-piece, .kiss-piece { position: fixed; z-index: 60; pointer-events: none; }
+    .confetti-piece { top: -20px; width: 8px; height: 16px; border: 2px solid var(--ink); animation: fall var(--duration) var(--delay) var(--ease) forwards; }
+    @keyframes fall { to { transform: translate3d(var(--drift),110vh,0) rotate(var(--spin)); opacity: 0; } }
+    .kiss-piece { left: var(--x); top: var(--y); color: var(--pink); font-size: var(--size); font-weight: 900; animation: kiss-pop 1.25s var(--delay) var(--ease) forwards; }
+    @keyframes kiss-pop { to { transform: translate3d(var(--dx),var(--dy),0) rotate(var(--spin)) scale(.2); opacity: 0; } }
+
+    @media (max-width: 850px) {
+      .scene { padding: 100px 22px 46px; }
+      .intro-layout, .question-layout, .classified-shell, .checkout-shell, .final-grid { grid-template-columns: 1fr; }
+      .intro-layout { gap: 28px; }
+      .intro-copy { text-align: center; margin: 0 auto; }
+      .intro-copy .lede { margin-left: auto; margin-right: auto; }
+      .cta-row { justify-content: center; }
+      .parcel-stage { min-height: 390px; }
+      .orbit { width: 340px; height: 340px; }
+      .parcel { width: min(320px,82vw); }
+      .question-layout { gap: 28px; }
+      .question-copy { text-align: center; }
+      .question-copy p:last-child { margin-left: auto; margin-right: auto; }
+      .question-number { margin-bottom: 8px; font-size: 48px; }
+      .classified-shell { gap: 44px; }
+      .approved-stamp { width: min(260px,72vw); }
+      .checkout-shell { gap: 35px; }
+      .checkout-intro { max-width: 620px; text-align: center; margin: auto; }
+      .checkout-intro .lede { margin-left: auto; margin-right: auto; }
+      .receipt { max-width: 580px; margin: auto; transform: none; }
+      .final-grid { max-width: 680px; }
+      .kiss-machine { position: static; order: 0; max-width: 460px; margin: 0 auto; }
     }
 
-    .text-button {
-      padding: 10px 0;
-      color: rgba(255,250,244,.48);
-      background: transparent;
-      font-size: 12px;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    @media (max-width: 720px) {
-      .scene { padding: 82px 20px 38px; }
-      .topbar { padding-left: 16px; padding-right: 16px; }
-      .question-layout, .checkout-shell, .letter-wrap { grid-template-columns: 1fr; }
-      .question-layout { gap: 30px; }
-      .question-number { margin-bottom: 12px; font-size: 48px; }
-      .question-copy h2 { margin-bottom: 12px; }
-      .question-copy p { margin-bottom: 0; }
-      .answer { min-height: 68px; }
-      .checkout-shell { gap: 28px; }
-      .checkout-intro { text-align: center; }
-      .checkout-intro .lede { margin-left: auto; }
-      .receipt { padding: 24px; transform: none; }
-      .letter-wrap { gap: 20px; }
-      .letter-aside { position: static; display: flex; align-items: center; gap: 18px; }
-      .monogram { flex: 0 0 auto; width: 76px; height: 76px; font-size: 28px; }
-      .arabic { margin: 0; text-align: right; font-size: 15px; }
-      .letter h2 { font-size: 42px; }
-    }
-
-    @media (max-width: 380px) {
-      .scene { padding-left: 16px; padding-right: 16px; }
-      h1 { font-size: 48px; }
-      .answer { padding: 12px; gap: 11px; }
-      .receipt { padding: 20px; }
-      .receipt-total strong { font-size: 32px; }
+    @media (max-width: 560px) {
+      .topbar { grid-template-columns: 1fr auto; padding-left: 14px; padding-right: 14px; }
+      .love-meter { grid-column: 1 / -1; grid-row: 2; justify-self: center; margin: 7px 0 -24px; transform: scale(.9); }
+      .step-count { grid-column: 2; grid-row: 1; }
+      .scene { padding: 118px 16px 36px; }
+      h1 { font-size: clamp(51px,15vw,72px); }
+      h2 { font-size: clamp(39px,12vw,58px); }
+      .parcel-stage { min-height: 340px; }
+      .orbit { width: 286px; height: 286px; }
+      .orbit::before, .orbit::after { width: 44px; height: 44px; }
+      .parcel { min-height: 236px; padding: 22px; box-shadow: 9px 10px 0 var(--pink); }
+      .parcel-name { font-size: 57px; }
+      .postmark { width: 61px; height: 61px; font-size: 8px; }
+      .parcel-sticker { right: -7px; }
+      .cta-row { flex-direction: column; }
+      .primary { width: 100%; }
+      .answer { grid-template-columns: 48px 1fr; min-height: 82px; padding: 13px; gap: 12px; }
+      .answer-mark { width: 46px; height: 46px; }
+      .answer-arrow { display: none; }
+      .classified-card, .receipt, .letter-paper, .kiss-machine { padding: 25px 20px; }
+      .receipt-total strong { font-size: 34px; }
+      .approved-stamp span { font-size: 40px; }
+      .declined-total { font-size: 82px; }
+      .letter-paper { box-shadow: 8px 9px 0 var(--pink); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -541,31 +439,37 @@
   </style>
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
-  <main class="app">
+  <div class="grain" aria-hidden="true"></div>
+  <main class="app" data-current-scene="intro">
     <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress"></div></div>
     <header class="topbar">
       <div class="wordmark"><span class="seal">S</span><span>For Abeer</span></div>
+      <div class="love-meter" data-testid="love-meter" aria-label="Love clues collected"><span class="meter-heart" aria-hidden="true">♥</span><span><span id="loveCount">0</span> / 3 clues collected</span></div>
       <span class="step-count" id="stepCount">01 / 08</span>
     </header>
 
     <section class="scene is-active" data-scene="intro" data-progress="8">
-      <div class="scene-inner center">
-        <p class="eyebrow">Encrypted with unreasonable amounts of affection</p>
-        <h1>Private<br>transmission.</h1>
-        <p class="lede">A little something crossed the distance from Shamil’s side of the world to yours. Recipient verification required.</p>
-        <div class="route" aria-hidden="true">
-          <svg viewBox="0 0 560 120" role="img">
-            <path class="route-path" d="M28 88 C 160 -5, 390 -5, 532 88"></path>
-            <circle class="route-dot" cx="28" cy="88" r="3"></circle>
-            <circle class="route-ring" cx="28" cy="88" r="3"></circle>
-            <circle class="route-dot" cx="532" cy="88" r="3"></circle>
-            <circle class="route-ring" cx="532" cy="88" r="3"></circle>
-          </svg>
-          <div class="route-labels"><span>Shamil</span><span>Abeer</span></div>
+      <div class="scene-inner intro-layout">
+        <div class="intro-copy">
+          <p class="eyebrow">Special delivery for Abeer</p>
+          <h1>Private transmission, <span class="accent">but make it fun.</span></h1>
+          <p class="lede">A tiny universe crossed the distance from Shamil’s side of the world to yours. It contains three questions, one suspicious invoice, and a ridiculous amount of love.</p>
+          <div class="cta-row">
+            <button class="primary" type="button" data-next="q1">Open it →</button>
+            <p class="privacy-note">No sign-in · no tracking · just yours</p>
+          </div>
         </div>
-        <button class="primary" type="button" data-next="q1">Open it</button>
-        <p class="privacy-note">No sign-in. No tracking. Only for you.</p>
+        <div class="parcel-stage" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="parcel">
+            <span class="parcel-tape"></span>
+            <div class="postmark">Air<br>Love<br>Mail</div>
+            <p class="parcel-label">Deliver exclusively to</p>
+            <div class="parcel-name">Abeer</div>
+            <div class="parcel-route"><span>Shamil</span><span class="route-line"></span><span>Abeer</span></div>
+            <span class="parcel-sticker">HANDLE<br>WITH LOVE</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -573,14 +477,14 @@
       <div class="scene-inner question-layout">
         <div class="question-copy">
           <span class="question-number">01</span>
-          <p class="eyebrow">Recipient check</p>
-          <h2>Who misses whom more?</h2>
-          <p>Choose carefully. The system is suspiciously biased.</p>
+          <p class="eyebrow">Important investigation</p>
+          <h2>Who misses whom <span class="accent">more?</span></h2>
+          <p>Your answer will be reviewed by a completely unbiased committee consisting only of Shamil.</p>
         </div>
         <div class="answers" role="group" aria-label="Who misses whom more?">
-          <button class="answer" type="button" data-answer="Abeer misses Shamil more" data-next="q2"><span class="answer-mark">A</span><span><span class="answer-title">Abeer misses Shamil more</span><span class="answer-sub">A respectable theory</span></span></button>
-          <button class="answer" type="button" data-answer="Definitely Shamil" data-next="q2"><span class="answer-mark">B</span><span><span class="answer-title">Definitely Shamil</span><span class="answer-sub">The system’s official answer</span></span></button>
-          <button class="answer" type="button" data-answer="It is a tie" data-next="q2"><span class="answer-mark">C</span><span><span class="answer-title">It’s a tie</span><span class="answer-sub">Diplomatic. Possibly correct.</span></span></button>
+          <button class="answer" type="button" data-answer="Abeer misses Shamil more" data-plan="Abeer misses Shamil more" data-next="q2"><span class="answer-mark">A</span><span><span class="answer-title">Abeer misses Shamil more</span><span class="answer-sub">A bold and respectable theory</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="Definitely Shamil" data-plan="Shamil misses Abeer the most" data-next="q2"><span class="answer-mark">B</span><span><span class="answer-title">Definitely Shamil</span><span class="answer-sub">The system’s very official answer</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="It is a tie" data-plan="They both miss each other equally" data-next="q2"><span class="answer-mark">C</span><span><span class="answer-title">It’s a tie</span><span class="answer-sub">Diplomatic. Suspiciously reasonable.</span></span><span class="answer-arrow">→</span></button>
         </div>
       </div>
     </section>
@@ -589,14 +493,14 @@
       <div class="scene-inner question-layout">
         <div class="question-copy">
           <span class="question-number">02</span>
-          <p class="eyebrow">Tonight’s impossible date</p>
-          <h2>Pick our teleport destination.</h2>
-          <p>Distance has been temporarily removed from the equation.</p>
+          <p class="eyebrow">Distance temporarily disabled</p>
+          <h2>Pick tonight’s impossible <span class="accent">date.</span></h2>
+          <p>The teleportation department has waived all travel time for the next five minutes.</p>
         </div>
         <div class="answers" role="group" aria-label="Pick our teleport destination">
-          <button class="answer" type="button" data-answer="Rooftop" data-next="q3"><span class="answer-mark">A</span><span><span class="answer-title">A rooftop under the stars</span><span class="answer-sub">Late conversations. No curfew.</span></span></button>
-          <button class="answer" type="button" data-answer="Seaside" data-next="q3"><span class="answer-mark">B</span><span><span class="answer-title">A quiet place by the sea</span><span class="answer-sub">Bare feet and a very long walk</span></span></button>
-          <button class="answer" type="button" data-answer="Kitchen" data-next="q3"><span class="answer-mark">C</span><span><span class="answer-title">Our future kitchen at 2 a.m.</span><span class="answer-sub">Snacks. Music. Absolutely no recipe.</span></span></button>
+          <button class="answer" type="button" data-answer="Rooftop" data-plan="a rooftop under the stars" data-next="q3"><span class="answer-mark">A</span><span><span class="answer-title">A rooftop under the stars</span><span class="answer-sub">Late conversations. Absolutely no curfew.</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="Seaside" data-plan="a quiet place by the sea" data-next="q3"><span class="answer-mark">B</span><span><span class="answer-title">A quiet place by the sea</span><span class="answer-sub">Bare feet and one unnecessarily long walk</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="Kitchen" data-plan="our future kitchen at 2 a.m." data-next="q3"><span class="answer-mark">C</span><span><span class="answer-title">Our future kitchen at 2 a.m.</span><span class="answer-sub">Snacks, music, and absolutely no recipe</span></span><span class="answer-arrow">→</span></button>
         </div>
       </div>
     </section>
@@ -605,26 +509,30 @@
       <div class="scene-inner question-layout">
         <div class="question-copy">
           <span class="question-number">03</span>
-          <p class="eyebrow">Final security question</p>
-          <h2>How many hugs are currently owed?</h2>
-          <p>This answer may be legally binding when we finally meet.</p>
+          <p class="eyebrow">Final legal question</p>
+          <h2>How many hugs are currently <span class="accent">owed?</span></h2>
+          <p>Choose carefully. This answer becomes enforceable the second the distance reaches zero.</p>
         </div>
         <div class="answers" role="group" aria-label="How many hugs are owed?">
-          <button class="answer" type="button" data-answer="One very long hug" data-next="classified"><span class="answer-mark">A</span><span><span class="answer-title">One that lasts forever</span><span class="answer-sub">Efficient, but ambitious</span></span></button>
-          <button class="answer" type="button" data-answer="All 500" data-next="classified"><span class="answer-mark">B</span><span><span class="answer-title">All 500, obviously</span><span class="answer-sub">Correct. No further questions.</span></span></button>
-          <button class="answer" type="button" data-answer="Unlimited" data-next="classified"><span class="answer-mark">C</span><span><span class="answer-title">Unlimited</span><span class="answer-sub">This answer has excellent terms</span></span></button>
+          <button class="answer" type="button" data-answer="One very long hug" data-plan="one hug that lasts forever" data-next="classified"><span class="answer-mark">A</span><span><span class="answer-title">One that lasts forever</span><span class="answer-sub">Efficient, dramatic, and difficult to time</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="All 500" data-plan="all 500 hugs" data-next="classified"><span class="answer-mark">B</span><span><span class="answer-title">All 500, obviously</span><span class="answer-sub">Correct. No further questions.</span></span><span class="answer-arrow">→</span></button>
+          <button class="answer" type="button" data-answer="Unlimited" data-plan="unlimited hugs forever" data-next="classified"><span class="answer-mark">C</span><span><span class="answer-title">Unlimited</span><span class="answer-sub">The premium lifetime subscription</span></span><span class="answer-arrow">→</span></button>
         </div>
       </div>
     </section>
 
     <section class="scene" data-scene="classified" data-progress="60">
-      <div class="scene-inner">
+      <div class="scene-inner classified-shell">
+        <div class="approved-stamp" aria-hidden="true"><span>Abeer approved!</span></div>
         <div class="classified-card">
-          <div class="lock-mark" aria-hidden="true"><span class="lock-body"></span></div>
-          <p class="eyebrow">Identity confirmed: Abeer</p>
-          <h2>Your classified surprise is ready.</h2>
-          <p class="lede">One final administrative formality stands between you and the extremely important thing Shamil made.</p>
-          <button class="primary rose" type="button" data-next="checkout">Continue to checkout</button>
+          <p class="eyebrow">Identity confirmed</p>
+          <h2>Your classified surprise is almost <span class="accent">unlocked.</span></h2>
+          <p class="lede">The system used your answers to prepare this highly scientific future plan:</p>
+          <div class="date-plan" data-testid="date-plan">
+            <div class="date-plan-label">Abeer + Shamil master plan</div>
+            <p class="date-plan-copy" id="datePlan">A date selected by Abeer, with every hug properly accounted for.</p>
+          </div>
+          <button class="primary yellow" type="button" data-next="checkout">Continue to checkout →</button>
         </div>
       </div>
     </section>
@@ -632,18 +540,18 @@
     <section class="scene" data-scene="checkout" data-progress="73">
       <div class="scene-inner checkout-shell">
         <div class="checkout-intro">
-          <p class="eyebrow">Official international girlfriend department</p>
-          <h2>A tiny access fee.</h2>
-          <p class="lede">Unfortunately, premium long-distance surprises are subject to highly serious international regulations.</p>
+          <p class="eyebrow">International girlfriend customs</p>
+          <h2>One tiny, extremely serious <span class="accent">fee.</span></h2>
+          <p class="lede">Unfortunately, premium long-distance surprises are subject to nonsense regulations invented approximately nine seconds ago.</p>
         </div>
         <div class="receipt" aria-label="Fake checkout receipt">
           <div id="receiptContent">
-            <div class="receipt-head"><span class="receipt-brand">Abeer Access™</span><span class="receipt-code">INV–0500</span></div>
+            <div class="receipt-head"><span class="receipt-brand">Love Customs™</span><span class="receipt-code">FORM–A500</span></div>
             <div class="line-item"><div><strong>Classified surprise unlock</strong><small>Single-use access for one very special girlfriend</small></div><span>$500.00</span></div>
-            <div class="line-item"><div><strong>International affection tax</strong><small>Paid in kisses upon meeting</small></div><span>Included</span></div>
-            <div class="line-item"><div><strong>Express delivery</strong><small>Across any distance</small></div><span>Free</span></div>
+            <div class="line-item"><div><strong>International affection tax</strong><small>Payable in kisses when the distance reaches zero</small></div><span>Included</span></div>
+            <div class="line-item"><div><strong>Express heart delivery</strong><small>America → Syria, no delays accepted</small></div><span>Free</span></div>
             <div class="receipt-total"><span>Total due</span><strong>$500.00</strong></div>
-            <button class="primary" id="payButton" type="button">Pay $500</button>
+            <button class="primary dark" id="payButton" type="button">Pay $500</button>
             <p class="receipt-note">This is a joke—no card details, no real payment, and no money will ever be collected.</p>
           </div>
           <div class="processing" id="processing" aria-live="polite">
@@ -656,24 +564,20 @@
 
     <section class="scene" data-scene="declined" data-progress="87">
       <div class="scene-inner center">
-        <div class="declined-mark" aria-hidden="true">×</div>
+        <div class="declined-burst" aria-hidden="true">×</div>
         <p class="eyebrow">Payment declined — excellent news</p>
-        <h2>Abeer is far too cute to be charged.</h2>
-        <p class="lede"><span class="struck">Original total: $500.00</span><br>Your corrected total is:</p>
+        <h2>Abeer is far too cute to be <span class="accent">charged.</span></h2>
+        <p class="lede"><span class="struck">Original total: $500.00</span><br>The corrected, legally adorable total is:</p>
         <div class="declined-total">$0.00</div>
-        <button class="primary rose" type="button" data-next="final" id="revealButton">Open the real surprise</button>
+        <button class="primary" type="button" data-next="final" id="revealButton">Open the real surprise →</button>
       </div>
     </section>
 
-    <section class="scene" data-scene="final" data-progress="100">
-      <div class="scene-inner letter-wrap">
-        <aside class="letter-aside">
-          <div class="monogram" aria-label="A and S">A · S</div>
-          <p class="arabic" lang="ar">إلى عبير، بكل حب<br>— شامل</p>
-        </aside>
-        <article class="letter">
+    <section class="scene final-scene" data-scene="final" data-progress="100">
+      <div class="scene-inner final-grid">
+        <article class="letter-paper">
           <p class="eyebrow">The real surprise</p>
-          <h2>Abeer, this is the real part.</h2>
+          <h2>Abeer, this is the <span class="accent">real part.</span></h2>
           <div class="letter-body">
             <p>None of this was ever about $500. I made this because even from far away, I wanted you to open something that felt like it existed only for you.</p>
             <p>I wanted to make you smile, give you a little moment you wouldn’t expect, and remind you that the distance doesn’t stop me from finding new ways to be close to you.</p>
@@ -681,13 +585,21 @@
             <p><strong>You owe me 500 kisses.</strong> I’ll be patient, but I’m keeping count.</p>
           </div>
           <p class="signature">Always yours,<br>Shamil</p>
-          <div class="kiss-ticket">
-            <div class="ticket-label">Lifetime redemption certificate · No expiry</div>
-            <div class="ticket-title">500 kisses reserved for Abeer</div>
-            <p class="ticket-copy">Valid whenever the distance finally becomes zero. Non-transferable. Additional hugs strongly encouraged.</p>
-          </div>
-          <button class="text-button" id="replayButton" type="button">Replay from the beginning</button>
+          <p class="arabic" lang="ar">إلى عبير، بكل حب — شامل</p>
         </article>
+        <aside class="kiss-machine">
+          <p class="machine-label">Long-distance kiss transmitter</p>
+          <div class="kiss-counter" data-testid="kiss-counter" id="kissCounter">0</div>
+          <p class="kiss-unit">kisses queued</p>
+          <button class="primary dark" id="kissButton" type="button">Release 500 kisses</button>
+          <p class="kiss-status" id="kissStatus" aria-live="polite">Ready when you are.</p>
+          <div class="ticket">
+            <div class="ticket-label">Lifetime redemption certificate · no expiry</div>
+            <div class="ticket-title">500 real kisses reserved for Abeer</div>
+            <p>Valid whenever the distance finally becomes zero. Non-transferable. Additional hugs strongly encouraged.</p>
+          </div>
+          <button class="text-button" id="replayButton" type="button">Replay our little adventure</button>
+        </aside>
       </div>
     </section>
   </main>
@@ -697,8 +609,19 @@
       const scenes = [...document.querySelectorAll('.scene')];
       const progress = document.getElementById('progress');
       const stepCount = document.getElementById('stepCount');
+      const loveCount = document.getElementById('loveCount');
+      const app = document.querySelector('.app');
       const answers = [];
+      const plans = [];
       let paymentTimer;
+      let kissTimer;
+
+      function updatePlan() {
+        const missing = plans[0] || 'both people miss each other terribly';
+        const place = plans[1] || 'somewhere the distance disappears';
+        const hugs = plans[2] || 'every hug currently owed';
+        document.getElementById('datePlan').textContent = `${missing}. First stop: ${place}. Final requirement: ${hugs}, plus snacks and absolutely no curfew.`;
+      }
 
       function showScene(name) {
         const next = document.querySelector(`[data-scene="${name}"]`);
@@ -707,11 +630,13 @@
           scene.classList.toggle('is-active', scene === next);
           scene.setAttribute('aria-hidden', String(scene !== next));
         });
+        app.dataset.currentScene = name;
         const index = scenes.indexOf(next) + 1;
         stepCount.textContent = `${String(index).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')}`;
         progress.style.width = `${next.dataset.progress}%`;
-        document.title = name === 'final' ? 'For Abeer — Always Yours, Shamil' : 'For Abeer — From Shamil';
+        document.title = name === 'final' ? 'For Abeer — Always Yours, Shamil' : 'For Abeer — Special Delivery';
         window.scrollTo({ top: 0, behavior: 'instant' });
+        if (name === 'classified') updatePlan();
         const focusTarget = next.querySelector('h1, h2');
         if (focusTarget) {
           focusTarget.setAttribute('tabindex', '-1');
@@ -722,7 +647,11 @@
       document.addEventListener('click', event => {
         const button = event.target.closest('[data-next]');
         if (!button) return;
-        if (button.dataset.answer) answers.push(button.dataset.answer);
+        if (button.dataset.answer) {
+          answers.push(button.dataset.answer);
+          plans.push(button.dataset.plan || button.dataset.answer);
+          loveCount.textContent = String(answers.length);
+        }
         showScene(button.dataset.next);
       });
 
@@ -730,31 +659,78 @@
         document.getElementById('receiptContent').hidden = true;
         document.getElementById('processing').classList.add('is-visible');
         clearTimeout(paymentTimer);
-        paymentTimer = setTimeout(() => showScene('declined'), 1100);
+        paymentTimer = setTimeout(() => showScene('declined'), 900);
       });
 
       function celebrate() {
-        const colors = ['#f3a9a5', '#f5e6d4', '#9ed7bd', '#d3a6c8'];
-        for (let i = 0; i < 46; i += 1) {
+        const colors = ['#ff5f7e', '#ffd84d', '#76d8ff', '#72d6a0', '#a78bfa'];
+        for (let i = 0; i < 56; i += 1) {
           const piece = document.createElement('i');
           piece.className = 'confetti-piece';
           piece.style.left = `${Math.random() * 100}vw`;
           piece.style.background = colors[i % colors.length];
-          piece.style.setProperty('--duration', `${2.4 + Math.random() * 2.2}s`);
+          piece.style.setProperty('--duration', `${2.3 + Math.random() * 2}s`);
           piece.style.setProperty('--delay', `${Math.random() * .4}s`);
-          piece.style.setProperty('--drift', `${-80 + Math.random() * 160}px`);
+          piece.style.setProperty('--drift', `${-100 + Math.random() * 200}px`);
           piece.style.setProperty('--spin', `${180 + Math.random() * 720}deg`);
           document.body.appendChild(piece);
-          setTimeout(() => piece.remove(), 5100);
+          setTimeout(() => piece.remove(), 5000);
+        }
+      }
+
+      function burstKisses() {
+        const button = document.getElementById('kissButton');
+        const rect = button.getBoundingClientRect();
+        for (let i = 0; i < 48; i += 1) {
+          const kiss = document.createElement('i');
+          kiss.className = 'kiss-piece';
+          kiss.textContent = i % 3 === 0 ? '♥' : '×';
+          kiss.style.setProperty('--x', `${rect.left + rect.width / 2}px`);
+          kiss.style.setProperty('--y', `${rect.top + rect.height / 2}px`);
+          kiss.style.setProperty('--size', `${16 + Math.random() * 26}px`);
+          kiss.style.setProperty('--dx', `${-190 + Math.random() * 380}px`);
+          kiss.style.setProperty('--dy', `${-80 - Math.random() * 360}px`);
+          kiss.style.setProperty('--spin', `${-180 + Math.random() * 360}deg`);
+          kiss.style.setProperty('--delay', `${Math.random() * .25}s`);
+          document.body.appendChild(kiss);
+          setTimeout(() => kiss.remove(), 1700);
         }
       }
 
       document.getElementById('revealButton').addEventListener('click', celebrate);
+      document.getElementById('kissButton').addEventListener('click', () => {
+        clearInterval(kissTimer);
+        burstKisses();
+        const counter = document.getElementById('kissCounter');
+        const status = document.getElementById('kissStatus');
+        const button = document.getElementById('kissButton');
+        let value = 0;
+        button.disabled = true;
+        kissTimer = setInterval(() => {
+          value = Math.min(500, value + 25);
+          counter.textContent = String(value);
+          if (value === 500) {
+            clearInterval(kissTimer);
+            status.textContent = '500 kisses sent — delivery guaranteed ♥';
+            button.textContent = 'Kisses released!';
+            celebrate();
+          }
+        }, 22);
+      });
+
       document.getElementById('replayButton').addEventListener('click', () => {
         clearTimeout(paymentTimer);
+        clearInterval(kissTimer);
         answers.length = 0;
+        plans.length = 0;
+        loveCount.textContent = '0';
         document.getElementById('receiptContent').hidden = false;
         document.getElementById('processing').classList.remove('is-visible');
+        document.getElementById('kissCounter').textContent = '0';
+        document.getElementById('kissStatus').textContent = 'Ready when you are.';
+        const kissButton = document.getElementById('kissButton');
+        kissButton.disabled = false;
+        kissButton.textContent = 'Release 500 kisses';
         showScene('intro');
       });
 

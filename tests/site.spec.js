@@ -37,6 +37,34 @@ test('the experience remains usable on a narrow phone viewport', async ({ page }
   expect(overflow).toBe(false);
 });
 
+test('the richer adventure reacts to Abeers choices', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.getByText(/special delivery for abeer/i)).toBeVisible();
+  await expect(page.getByTestId('love-meter')).toContainText('0 / 3');
+
+  await page.getByRole('button', { name: /open it/i }).click();
+  await page.getByRole('button', { name: /definitely shamil/i }).click();
+  await expect(page.getByTestId('love-meter')).toContainText('1 / 3');
+  await page.getByRole('button', { name: /rooftop/i }).click();
+  await page.getByRole('button', { name: /all 500/i }).click();
+
+  await expect(page.getByTestId('date-plan')).toContainText(/rooftop/i);
+  await expect(page.getByTestId('date-plan')).toContainText(/500/i);
+});
+
+test('the finale lets Abeer release all 500 kisses', async ({ page }) => {
+  await page.goto('/');
+  await finishQuestions(page);
+  await page.getByRole('button', { name: /continue to checkout/i }).click();
+  await page.getByRole('button', { name: /pay \$500/i }).click();
+  await page.getByRole('button', { name: /open the real surprise/i }).click();
+
+  await page.getByRole('button', { name: /release 500 kisses/i }).click();
+  await expect(page.getByTestId('kiss-counter')).toHaveText('500');
+  await expect(page.getByText(/500 kisses sent/i)).toBeVisible();
+});
+
 test('reduced-motion visitors do not get forced animation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
